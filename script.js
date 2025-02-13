@@ -16,10 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
             listDiv.classList.add("list");
 
             const listHeader = document.createElement("h2");
-            listHeader.innerHTML = `
-                ${list.name} 
-                <button class="delete-btn" onclick="deleteList(${index})">🗑️</button>
-            `;
+            listHeader.textContent = list.name;
+
+            const deleteBtn = document.createElement("button");
+            deleteBtn.classList.add("delete-btn");
+            deleteBtn.textContent = "🗑️";
+            deleteBtn.addEventListener("click", () => deleteList(index));
+
+            listHeader.appendChild(deleteBtn);
             listDiv.appendChild(listHeader);
 
             const itemList = document.createElement("ul");
@@ -79,19 +83,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     addListBtn.addEventListener("click", () => {
-        if (listNameInput.value.trim()) {
-            lists.push({ name: listNameInput.value, items: [] });
-            listNameInput.value = "";
+        if (!listNameInput.value.trim()) {
+            alert("Inserisci un nome per la lista!");
+            return;
+        }
+
+        lists.push({ name: listNameInput.value, items: [] });
+        listNameInput.value = "";
+        saveLists();
+        renderLists();
+    });
+
+    function deleteList(index) {
+        const confirmDelete = confirm("Sei sicuro di voler eliminare questa lista?");
+        if (confirmDelete) {
+            lists.splice(index, 1);
             saveLists();
             renderLists();
         }
-    });
-
-    window.deleteList = function (index) {
-    const confirmDelete = confirm("Sei sicuro di voler eliminare questa lista?");
-    if (confirmDelete) {
-        lists.splice(index, 1);
-        saveLists();
-        renderLists();
     }
-};
+
+    renderLists();
+});
