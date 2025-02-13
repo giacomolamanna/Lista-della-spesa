@@ -87,11 +87,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    window.deleteList = function (index) {
+window.deleteList = function (index) {
+    const confirmDelete = confirm("Sei sicuro di voler eliminare questa lista?");
+    if (confirmDelete) {
         lists.splice(index, 1);
         saveLists();
         renderLists();
-    };
-
-    renderLists();
-});
+    }
+};
