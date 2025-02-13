@@ -95,3 +95,16 @@ button:hover {
 .delete-btn:hover {
     background: #c82333;
 }
+
+.list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.list li input[type="checkbox"] {
+    margin-right: 10px;
+    order: -1; /* Sposta la checkbox a sinistra */
+}
