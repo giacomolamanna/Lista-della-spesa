@@ -79,10 +79,8 @@ button:hover {
     border-bottom: none;
 }
 
-
-
 .checkbox {
-    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .delete-btn {
