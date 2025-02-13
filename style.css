@@ -69,16 +69,16 @@ button:hover {
 
 .list li {
     display: flex;
-    align-items: center;
+    align-items: left;
     justify-content: space-between;
     padding: 5px;
     border-bottom: 1px solid #ddd;
 }
 
-.list li input[type="checkbox"] {
-    margin-right: 10px;
-    order: -1; /* Sposta la checkbox a sinistra */
+.list li:last-child {
+    border-bottom: none;
 }
+
 
 
 .checkbox {
