@@ -65,17 +65,51 @@ button:hover {
 .list ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
+/* Stile per ogni elemento della lista */
+.list li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
 
+/* Sposta la checkbox a sinistra */
+.list li input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+/* Contenitore del nome e quantità dell'elemento */
+.list-item-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    gap: 10px;
+}
+
+/* Stile per il testo degli elementi della lista */
+.list-item-container span {
+    flex-grow: 1;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Stile per il selettore quantità */
+.list-item-container select {
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Stile per l'ultimo elemento della lista */
 .list li:last-child {
     border-bottom: none;
 }
 
-.checkbox {
-    margin-right: 10px;
-}
-
+/* Stile per il pulsante di eliminazione lista */
 .delete-btn {
     background: #dc3545;
     border: none;
@@ -87,17 +121,4 @@ button:hover {
 
 .delete-btn:hover {
     background: #c82333;
-}
-
-.list li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px;
-    border-bottom: 1px solid #ddd;
-}
-
-.list li input[type="checkbox"] {
-    margin-right: 10px;
-    order: -1; /* Sposta la checkbox a sinistra */
 }
