@@ -69,7 +69,7 @@ button:hover {
 
 .list li {
     display: flex;
-    align-items: left;
+    align-items: center;
     justify-content: space-between;
     padding: 5px;
     border-bottom: 1px solid #ddd;
@@ -82,7 +82,7 @@ button:hover {
 
 
 .checkbox {
-    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .delete-btn {
