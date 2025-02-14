@@ -107,6 +107,8 @@ button:hover {
     align-items: center; /* Allinea verticalmente */
     justify-content: center;
     vertical-align: middle;
+    position: relative;
+    top: 6px; /* Sposta il pulsante più in basso di 6px */
 }
 
 /* Effetto hover per il pulsante di eliminazione */
