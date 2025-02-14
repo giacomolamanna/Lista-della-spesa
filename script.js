@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const listContainer = document.getElementById("lists-container");
     const addListBtn = document.getElementById("add-list");
-    const listNameInput = document.getElementById("list-name");
 
     let lists = JSON.parse(localStorage.getItem("shoppingLists")) || [];
 
@@ -16,27 +15,22 @@ document.addEventListener("DOMContentLoaded", function () {
             listDiv.classList.add("list");
 
             const listHeader = document.createElement("h2");
-            listHeader.innerHTML = `
-                ${list.name} 
-                <button class="delete-btn" onclick="deleteList(${index})">🗑️</button>
-            `;
+            listHeader.textContent = list.name;
+
+            const deleteBtn = document.createElement("button");
+            deleteBtn.classList.add("delete-btn");
+            deleteBtn.textContent = "🗑️";
+            deleteBtn.addEventListener("click", () => deleteList(index));
+
+            listHeader.appendChild(deleteBtn);
             listDiv.appendChild(listHeader);
 
             const itemList = document.createElement("ul");
             list.items.forEach((item, itemIndex) => {
                 const itemLi = document.createElement("li");
 
-                const checkbox = document.createElement("input");
-                checkbox.type = "checkbox";
-                checkbox.checked = item.bought;
-                checkbox.classList.add("checkbox");
-                checkbox.addEventListener("change", () => {
-                    lists[index].items[itemIndex].bought = checkbox.checked;
-                    saveLists();
-                });
-
-                const itemText = document.createElement("span");
-                itemText.textContent = item.name;
+                const itemContainer = document.createElement("div");
+                itemContainer.classList.add("list-item-container");
 
                 const quantitySelect = document.createElement("select");
                 for (let i = 1; i <= 10; i++) {
@@ -51,9 +45,29 @@ document.addEventListener("DOMContentLoaded", function () {
                     saveLists();
                 });
 
+                const itemText = document.createElement("span");
+                itemText.textContent = item.name;
+
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.checked = item.bought;
+                checkbox.classList.add("checkbox");
+                checkbox.addEventListener("change", () => {
+                    lists[index].items[itemIndex].bought = checkbox.checked;
+                    saveLists();
+                });
+
+                const deleteItemBtn = document.createElement("button");
+                deleteItemBtn.classList.add("delete-btn");
+                deleteItemBtn.textContent = "❌";
+                deleteItemBtn.addEventListener("click", () => deleteItem(index, itemIndex));
+
+                itemContainer.appendChild(quantitySelect);
+                itemContainer.appendChild(itemText);
+                itemLi.appendChild(itemContainer);
                 itemLi.appendChild(checkbox);
-                itemLi.appendChild(itemText);
-                itemLi.appendChild(quantitySelect);
+                itemLi.appendChild(deleteItemBtn);
+
                 itemList.appendChild(itemLi);
             });
 
@@ -79,19 +93,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     addListBtn.addEventListener("click", () => {
-        if (listNameInput.value.trim()) {
-            lists.push({ name: listNameInput.value, items: [] });
-            listNameInput.value = "";
+        const newListName = `Lista ${lists.length + 1}`;
+        lists.push({ name: newListName, items: [] });
+        saveLists();
+        renderLists();
+    });
+
+    function deleteList(index) {
+        if (confirm("Sei sicuro di voler eliminare questa lista?")) {
+            lists.splice(index, 1);
             saveLists();
             renderLists();
         }
-    });
+    }
 
-    window.deleteList = function (index) {
-        lists.splice(index, 1);
-        saveLists();
-        renderLists();
-    };
+    function deleteItem(listIndex, itemIndex) {
+        if (confirm("Vuoi eliminare questo elemento?")) {
+            lists[listIndex].items.splice(itemIndex, 1);
+            saveLists();
+            renderLists();
+        }
+    }
 
     renderLists();
 });
