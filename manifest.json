@@ -1,6 +1,6 @@
 {
     "name": "Lista della Spesa",
-    "short_name": "Spesa",
+    "short_name": "Lista Spesa",
     "description": "Un'app web per gestire la lista della spesa con stile!",
     "start_url": "index.html",
     "display": "standalone",
