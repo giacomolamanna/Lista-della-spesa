@@ -55,15 +55,16 @@ button:hover {
     padding: 0;
 }
 
+/* Stile per ogni elemento della lista */
 .list li {
     display: flex;
-    align-items: center;
+    align-items: center; /* Centra tutti gli elementi verticalmente */
     justify-content: space-between;
     padding: 8px;
     border-bottom: 1px solid #ddd;
 }
 
-/* Allinea gli elementi della lista */
+/* Contenitore per quantità e nome */
 .list-item-container {
     display: flex;
     align-items: center;
@@ -71,14 +72,14 @@ button:hover {
     gap: 10px;
 }
 
-/* Allinea la combobox a sinistra */
+/* Allinea la combobox della quantità a sinistra */
 .list-item-container select {
     padding: 4px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-/* Allinea il nome dell'item al centro */
+/* Testo dell'elemento centrato */
 .list-item-container span {
     flex-grow: 1;
     font-size: 16px;
@@ -86,23 +87,29 @@ button:hover {
     text-align: left;
 }
 
-/* Checkbox a destra */
+/* Sposta la checkbox a sinistra e aggiunge spazio tra checkbox e pulsante di eliminazione */
 .list li input[type="checkbox"] {
     margin-left: auto;
-    margin-right: 10px;
+    margin-right: 20px; /* Aggiunge spazio tra checkbox e il pulsante */
     transform: scale(1.2);
+    vertical-align: middle; /* Allinea la checkbox verticalmente */
 }
 
-/* Pulsanti di eliminazione */
+/* Stile per il pulsante di eliminazione (❌) senza sfondo */
 .delete-btn {
     background: none; /* Rimuove lo sfondo */
     border: none; /* Rimuove il bordo */
-    color: #dc3545; /* Mantiene il colore rosso per la "X" */
-    font-size: 18px; /* Regola la dimensione */
+    color: #dc3545; /* Mantiene la "X" rossa */
+    font-size: 18px;
     cursor: pointer;
     padding: 4px;
+    display: flex;
+    align-items: center; /* Allinea verticalmente */
+    justify-content: center;
+    vertical-align: middle;
 }
 
+/* Effetto hover per il pulsante di eliminazione */
 .delete-btn:hover {
     color: #c82333; /* Cambia solo il colore al passaggio del mouse */
     background: none; /* Assicura che non riappaia lo sfondo */
