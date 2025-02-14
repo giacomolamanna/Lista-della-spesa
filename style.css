@@ -95,14 +95,15 @@ button:hover {
 
 /* Pulsanti di eliminazione */
 .delete-btn {
-    background: #dc3545;
-    border: none;
-    color: white;
-    padding: 4px 8px;
-    border-radius: 5px;
+    background: none; /* Rimuove lo sfondo */
+    border: none; /* Rimuove il bordo */
+    color: #dc3545; /* Mantiene il colore rosso per la "X" */
+    font-size: 18px; /* Regola la dimensione */
     cursor: pointer;
+    padding: 4px;
 }
 
 .delete-btn:hover {
-    background: #c82333;
+    color: #c82333; /* Cambia solo il colore al passaggio del mouse */
+    background: none; /* Assicura che non riappaia lo sfondo */
 }
