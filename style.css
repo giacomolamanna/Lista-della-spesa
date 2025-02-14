@@ -89,6 +89,7 @@ button:hover {
 /* Checkbox a destra */
 .list li input[type="checkbox"] {
     margin-left: auto;
+    margin-right: 10px;
     transform: scale(1.2);
 }
 
