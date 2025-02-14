@@ -19,19 +19,6 @@ h1 {
     color: #333;
 }
 
-.controls {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-input {
-    flex-grow: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
 button {
     background: #28a745;
     color: white;
@@ -40,6 +27,7 @@ button {
     cursor: pointer;
     border-radius: 5px;
     font-size: 16px;
+    margin-bottom: 15px;
 }
 
 button:hover {
@@ -67,22 +55,15 @@ button:hover {
     padding: 0;
 }
 
-/* Stile per ogni elemento della lista */
 .list li {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Allinea tutto a sinistra */
-    padding: 5px;
+    justify-content: space-between;
+    padding: 8px;
     border-bottom: 1px solid #ddd;
 }
 
-/* Sposta la checkbox completamente a sinistra */
-.list li input[type="checkbox"] {
-    margin-right: 10px;
-    margin-left: 0; /* Assicura che sia aderente al bordo sinistro */
-}
-
-/* Stile per il contenitore del testo e della quantità */
+/* Allinea gli elementi della lista */
 .list-item-container {
     display: flex;
     align-items: center;
@@ -90,25 +71,28 @@ button:hover {
     gap: 10px;
 }
 
-/* Testo dell'elemento */
-.list-item-container span {
-    flex-grow: 1;
-    font-size: 16px;
-    color: #333;
-}
-
-/* Stile per il selettore della quantità */
+/* Allinea la combobox a sinistra */
 .list-item-container select {
     padding: 4px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.list li:last-child {
-    border-bottom: none;
+/* Allinea il nome dell'item al centro */
+.list-item-container span {
+    flex-grow: 1;
+    font-size: 16px;
+    color: #333;
+    text-align: left;
 }
 
-/* Stile per il pulsante di eliminazione lista */
+/* Checkbox a destra */
+.list li input[type="checkbox"] {
+    margin-left: auto;
+    transform: scale(1.2);
+}
+
+/* Pulsanti di eliminazione */
 .delete-btn {
     background: #dc3545;
     border: none;
